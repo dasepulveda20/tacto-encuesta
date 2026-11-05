@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TACTO Nutrition · Antes de tu consulta</title>
+<meta name="description" content="Queremos conocerte antes de recomendarte algo. Toma unos 5 minutos.">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#641F32">
+<meta property="og:title" content="TACTO Nutrition · Antes de tu consulta">
+<meta property="og:description" content="Queremos conocerte antes de recomendarte algo. Toma unos 5 minutos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23641F32'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='%23F5EFE6'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --vino: #641F32;
+    --vino-oscuro: #4E1726;
+    --crema: #F5EFE6;
+    --chocolate: #2B211F;
+    --arena: #D8C9B8;
+    --champagne: #B89A70;
+    --blanco: #FFFCF8;
+    --texto-suave: #65564F;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "DM Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--crema);
+    color: var(--chocolate);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+  }
+  [hidden] { display: none !important; }
+  button, input, textarea { font: inherit; color: inherit; }
+
+  /* Portada */
+  .portada {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--vino);
+    color: var(--crema);
+    padding: max(28px, env(safe-area-inset-top)) 24px max(28px, env(safe-area-inset-bottom));
+  }
+  .portada::before, .portada::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .portada::before {
+    width: 520px; height: 520px;
+    right: -210px; top: -150px;
+    background: var(--vino-oscuro);
+  }
+  .portada::after {
+    width: 250px; height: 250px;
+    right: -70px; top: -70px;
+    border: 1px solid rgba(184, 154, 112, .55);
+  }
+  .portada > * { position: relative; z-index: 1; }
+  .portada-contenido {
+    width: 100%;
+    max-width: 620px;
+    margin: auto;
+    padding: 56px 0 24px;
+  }
+  .marca {
+    font-family: var(--serif);
+    font-weight: 500;
+    letter-spacing: .2em;
+  }
+  .portada .marca {
+    display: block;
+    font-size: clamp(3.1rem, 15vw, 5.6rem);
+    line-height: 1;
+    letter-spacing: .14em;
+  }
+  .linea-marca {
+    margin: 8px 0 44px;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--arena);
+  }
+  .portada h1 {
+    margin: 0 0 16px;
+    max-width: 15em;
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 6.6vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.14;
+  }
+  .portada p.entrada {
+    margin: 0 0 30px;
+    max-width: 30em;
+    color: #F1E7DA;
+    font-size: 1.08rem;
+  }
+  .boton-crema {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 56px;
+    padding: 14px 32px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--crema);
+    color: var(--vino);
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .boton-crema:hover { background: #fff; transform: translateY(-1px); }
+  .detalle-tiempo {
+    display: block;
+    margin-top: 16px;
+    color: var(--arena);
+    font-size: .92rem;
+  }
+  .aviso-portada {
+    max-width: 620px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 18px;
+    border-top: 1px solid rgba(216, 201, 184, .32);
+    color: var(--arena);
+    font-size: .86rem;
+  }
+
+  /* Encabezado de las preguntas */
+  .encabezado {
+    background: var(--vino);
+    color: var(--crema);
+    padding: max(14px, env(safe-area-inset-top)) 24px 14px;
+  }
+  .encabezado-fila {
+    max-width: 620px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+  }
+  .encabezado .marca { font-size: 1.1rem; }
+  #contador { color: var(--arena); font-size: .88rem; white-space: nowrap; }
+  .progreso { height: 3px; background: var(--arena); }
+  .progreso span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--champagne);
+    transition: width .35s ease;
+  }
+
+  /* Pasos */
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 668px;
+    margin: 0 auto;
+    padding: 34px 24px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .paso { animation: entra .32s ease both; }
+  @keyframes entra {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+  .paso h2 {
+    margin: 0 0 8px;
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 5.4vw, 2.1rem);
+    font-weight: 500;
+    line-height: 1.18;
+    color: var(--vino);
+    outline: none;
+  }
+  .ayuda { margin: 0 0 22px; color: var(--texto-suave); }
+
+  label.campo { display: block; margin-bottom: 18px; font-weight: 500; }
+  input[type="text"], input[type="number"], textarea {
+    display: block;
+    width: 100%;
+    margin-top: 7px;
+    padding: 14px 16px;
+    border: 1.5px solid var(--arena);
+    border-radius: 12px;
+    background: var(--blanco);
+    font-weight: 400;
+    font-size: 1.05rem;
+  }
+  textarea { min-height: 168px; resize: vertical; line-height: 1.5; }
+  input:focus, textarea:focus { outline: 2px solid var(--vino); outline-offset: 1px; border-color: var(--vino); }
+
+  .opciones { display: grid; gap: 10px; }
+  .opcion { position: relative; display: block; cursor: pointer; }
+  .opcion input { position: absolute; opacity: 0; width: 100%; height: 100%; inset: 0; margin: 0; cursor: pointer; }
+  .opcion span {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-height: 56px;
+    padding: 13px 16px;
+    border: 1.5px solid var(--arena);
+    border-radius: 12px;
+    background: var(--blanco);
+    transition: background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .opcion span::before {
+    content: "";
+    flex: 0 0 20px;
+    height: 20px;
+    border: 1.5px solid var(--champagne);
+    border-radius: 6px;
+    background: var(--blanco) center / 13px no-repeat;
+  }
+  .opcion input[type="radio"] + span::before { border-radius: 50%; }
+  .opcion:hover span { border-color: var(--champagne); }
+  .opcion input:checked + span { background: var(--vino); border-color: var(--vino); color: var(--crema); }
+  .opcion input:checked + span::before {
+    border-color: var(--crema);
+    background-color: var(--crema);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3.2L13 4.8' fill='none' stroke='%23641F32' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  .opcion input:focus-visible + span { outline: 2px solid var(--vino); outline-offset: 2px; }
+  .otro-texto { margin-top: 2px; }
+
+  .autorizacion {
+    margin: 0 0 18px;
+    padding: 18px;
+    border-left: 3px solid var(--champagne);
+    border-radius: 0 12px 12px 0;
+    background: var(--blanco);
+    font-size: .97rem;
+    line-height: 1.55;
+  }
+  .nota { margin: 14px 0 0; color: var(--texto-suave); font-size: .92rem; }
+
+  .error { min-height: 1.5em; margin: 14px 0 0; color: var(--vino); font-weight: 600; font-size: .95rem; }
+  .acciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 16px;
+  }
+  .boton {
+    flex: 0 1 auto;
+    min-height: 54px;
+    min-width: 150px;
+    padding: 13px 30px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--vino);
+    color: var(--crema);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s ease;
+  }
+  .boton:hover { background: var(--vino-oscuro); }
+  .boton[disabled] { opacity: .65; cursor: wait; }
+  .atras {
+    min-height: 54px;
+    padding: 13px 8px;
+    border: 0;
+    background: none;
+    color: var(--texto-suave);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .atras:hover { color: var(--vino); }
+  button:focus-visible { outline: 2px solid var(--champagne); outline-offset: 3px; }
+
+  /* Cierre */
+  .cierre h1 {
+    margin: 0 0 16px;
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.08;
+  }
+  .cierre .frase {
+    margin: 26px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(216, 201, 184, .32);
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--arena);
+  }
+
+  @media (min-width: 720px) {
+    .portada { padding-inline: 48px; }
+    .portada::before { width: 720px; height: 720px; right: -220px; top: -260px; }
+    .portada::after { width: 420px; height: 420px; right: -60px; top: -90px; }
+    main { padding-top: 56px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<section class="portada" id="portada">
+  <div class="portada-contenido">
+    <span class="marca">TACTO</span>
+    <p class="linea-marca">Nutrition</p>
+    <h1>Queremos conocerte antes de recomendarte algo.</h1>
+    <p class="entrada">Estas preguntas nos permiten dedicar la consulta a escucharte. No hay respuestas buenas ni malas.</p>
+    <button class="boton-crema" id="empezar" type="button">Empezar</button>
+    <span class="detalle-tiempo">Toma unos 5 minutos</span>
+  </div>
+  <p class="aviso-portada">Esta encuesta no es un canal de urgencias. Si tienes síntomas de alarma, consulta a tu médico o acude a urgencias.</p>
+</section>
+
+<div id="encuesta" hidden style="display:flex;flex-direction:column;flex:1">
+  <header class="encabezado">
+    <div class="encabezado-fila">
+      <span class="marca">TACTO</span>
+      <span id="contador" aria-live="polite"></span>
+    </div>
+  </header>
+  <div class="progreso" aria-hidden="true"><span id="barra"></span></div>
+  <main>
+    <form id="formulario" novalidate style="display:flex;flex-direction:column;flex:1">
+      <div id="paso" class="paso"></div>
+      <p class="error" id="error" role="alert"></p>
+      <div class="acciones">
+        <button class="atras" id="atras" type="button">← Atrás</button>
+        <button class="boton" id="siguiente" type="submit">Continuar</button>
+      </div>
+    </form>
+  </main>
+</div>
+
+<section class="portada cierre" id="gracias" hidden>
+  <div class="portada-contenido">
+    <span class="marca" style="font-size:1.3rem;letter-spacing:.2em;margin-bottom:44px">TACTO</span>
+    <h1 id="gracias-titulo" tabindex="-1">Gracias, <span id="gracias-nombre"></span>.</h1>
+    <p class="entrada">Recibimos tus respuestas. Nos vemos en la consulta.</p>
+    <p class="frase">Cuidar también es sentir.</p>
+  </div>
+  <p class="aviso-portada">Esta encuesta no es un canal de urgencias. Si tienes síntomas de alarma, consulta a tu médico o acude a urgencias.</p>
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  // Las respuestas se guardan en el Google Form de TACTO. Esta página no guarda nada.
+  var FORM_ID = '1FAIpQLSdx73hUIKSz4D5ogoecbeG53ItmL7luVX6IUyL8YRJNl8xMog';
+  var URL_ENVIO = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse';
+  var URL_RESPALDO = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/viewform';
+
+  var PASOS = [
+    {
+      tipo: 'datos', titulo: 'Primero, ¿con quién hablamos?', etiqueta: 'Antes de empezar',
+      campos: [
+        { id: 'nombre', entrada: '1073520801', label: 'Nombre y apellido', autocomplete: 'name' },
+        { id: 'edad', entrada: '686223026', label: 'Edad', numero: true }
+      ]
+    },
+    {
+      tipo: 'radio', id: 'objetivo', entrada: '134896498', otro: 'Otro',
+      titulo: '¿Qué te gustaría lograr con tu proceso?', ayuda: 'Elige la opción principal.',
+      opciones: ['Bajar de peso o grasa', 'Ganar peso o músculo', 'Mejorar mi composición corporal', 'Ordenar mis hábitos y mis comidas', 'Recibir apoyo nutricional por una condición de salud']
+    },
+    {
+      tipo: 'checkbox', id: 'salud', entrada: '3078088', otro: 'Otra', exclusiva: 'Ninguna',
+      titulo: '¿Alguna de estas situaciones aplica para ti hoy?', ayuda: 'Puedes marcar varias.',
+      opciones: ['Diabetes o prediabetes', 'Enfermedad renal', 'Embarazo o lactancia', 'Presión alta, colesterol o triglicéridos altos', 'Enfermedad de tiroides', 'Enfermedad digestiva, o cirugía digestiva o bariátrica', 'Alergia o intolerancia a algún alimento', 'Ninguna']
+    },
+    {
+      tipo: 'texto', id: 'medicamentos', entrada: '487100772',
+      titulo: '¿Qué medicamentos o suplementos tomas hoy?',
+      ayuda: 'Incluye los que uses para el peso o el azúcar. Si no tomas ninguno, escribe «ninguno».'
+    },
+    {
+      tipo: 'checkbox', id: 'alerta', entrada: '378812774', exclusiva: 'Nada de lo anterior',
+      titulo: 'En los últimos 3 meses, ¿te ha pasado algo de esto?',
+      ayuda: 'Te lo preguntamos para cuidarte y para saber si conviene sumar a otro profesional. Puedes marcar varias.',
+      opciones: ['Sentir que pierdes el control sobre cuánto comes', 'Vomitar, ayunar muchas horas o usar laxantes para compensar lo que comiste', 'Sentir que la comida o tu peso dominan tu vida', 'Perder peso rápido sin proponértelo', 'Mareos fuertes o desmayos', 'Nada de lo anterior']
+    },
+    {
+      tipo: 'texto', id: 'dia', entrada: '1171312029',
+      titulo: 'Cuéntanos cómo es un día normal tuyo',
+      ayuda: 'A qué hora te levantas y trabajas, qué comes y a qué horas, quién cocina y cuánto te mueves.'
+    },
+    {
+      tipo: 'texto', id: 'plan', entrada: '2058837645',
+      titulo: 'Para que tu plan quepa en tu vida',
+      ayuda: '¿Qué alimentos no pueden faltar, cuáles prefieres evitar y cuánto sueles gastar en mercado a la semana?'
+    },
+    { tipo: 'autorizacion', id: 'autorizacion', entrada: '707694152', titulo: 'Autorización de datos', etiqueta: 'Último paso', valor: 'Sí, autorizo' }
+  ];
+  var TOTAL_PREGUNTAS = 6;
+
+  var respuestas = {};
+  var indice = 0;
+  var el = function (id) { return document.getElementById(id); };
+
+  function esc(t) {
+    var d = document.createElement('div');
+    d.textContent = t == null ? '' : t;
+    return d.innerHTML.replace(/"/g, '&quot;');
+  }
+
+  function numeroPregunta(i) {
+    var n = 0;
+    for (var j = 0; j <= i; j++) { if (!PASOS[j].etiqueta) n++; }
+    return n;
+  }
+
+  function dibujarOpciones(p) {
+    var r = respuestas[p.id] || { valores: [], otro: '' };
+    var tipo = p.tipo === 'radio' ? 'radio' : 'checkbox';
+    var html = '<div class="opciones" role="group" aria-labelledby="titulo-paso">';
+    p.opciones.forEach(function (o) {
+      var marcado = r.valores.indexOf(o) >= 0 ? ' checked' : '';
+      html += '<label class="opcion"><input type="' + tipo + '" name="' + p.id + '" value="' + esc(o) + '"' + marcado + '><span>' + esc(o) + '</span></label>';
+    });
+    if (p.otro) {
+      var marcadoOtro = r.valores.indexOf('__otro__') >= 0;
+      html += '<label class="opcion"><input type="' + tipo + '" name="' + p.id + '" value="__otro__"' + (marcadoOtro ? ' checked' : '') + '><span>' + esc(p.otro) + '</span></label>';
+      html += '<input class="otro-texto" id="otro-texto" type="text" aria-label="Cuéntanos cuál" placeholder="Cuéntanos cuál" value="' + esc(r.otro) + '"' + (marcadoOtro ? '' : ' hidden') + '>';
+    }
+    return html + '</div>';
+  }
+
+  function dibujar() {
+    var p = PASOS[indice];
+    var html = '<h2 id="titulo-paso" tabindex="-1">' + esc(p.titulo) + '</h2>';
+
+    if (p.tipo === 'datos') {
+      html += '<p class="ayuda">Nos ayuda a preparar tu consulta.</p>';
+      p.campos.forEach(function (c) {
+        html += '<label class="campo">' + esc(c.label) + '<input id="' + c.id + '" type="' + (c.numero ? 'number' : 'text') + '"' +
+          (c.numero ? ' inputmode="numeric" min="1" max="120"' : '') +
+          (c.autocomplete ? ' autocomplete="' + c.autocomplete + '"' : '') +
+          ' value="' + esc(respuestas[c.id]) + '"></label>';
+      });
+    } else if (p.tipo === 'texto') {
+      html += '<p class="ayuda">' + esc(p.ayuda) + '</p>';
+      html += '<textarea id="' + p.id + '" aria-labelledby="titulo-paso">' + esc(respuestas[p.id]) + '</textarea>';
+    } else if (p.tipo === 'autorizacion') {
+      html += '<div class="autorizacion">Autorizo a Daniel Sepulveda, nutricionista de TACTO, a tratar los datos de esta encuesta, incluidos mis datos de salud, para valorar mi caso, preparar mi plan y hacer mi seguimiento. Entiendo que los datos de salud son sensibles y que no estoy en la obligación de entregarlos, aunque sin ellos el plan puede no ser adecuado para mí. Mis respuestas se guardan en Google con acceso solo de mi nutricionista. Puedo conocer, actualizar o corregir mis datos y retirar esta autorización escribiendo al WhatsApp de TACTO.</div>';
+      html += '<label class="opcion"><input type="checkbox" id="autorizo"' + (respuestas[p.id] ? ' checked' : '') + '><span>' + esc(p.valor) + '</span></label>';
+      html += '<p class="nota">Si prefieres no autorizar, no envíes la encuesta y escríbenos al WhatsApp de TACTO.</p>';
+    } else {
+      html += '<p class="ayuda">' + esc(p.ayuda) + '</p>' + dibujarOpciones(p);
+    }
+
+    var cont = el('paso');
+    cont.innerHTML = html;
+    cont.style.animation = 'none';
+    void cont.offsetWidth;
+    cont.style.animation = '';
+
+    el('error').textContent = '';
+    el('atras').style.visibility = indice === 0 ? 'hidden' : 'visible';
+    el('siguiente').textContent = indice === PASOS.length - 1 ? 'Enviar' : 'Continuar';
+    el('contador').textContent = p.etiqueta || ('Pregunta ' + numeroPregunta(indice) + ' de ' + TOTAL_PREGUNTAS);
+    el('barra').style.width = Math.round(((indice + 1) / PASOS.length) * 100) + '%';
+
+    window.scrollTo(0, 0);
+    el('titulo-paso').focus({ preventScroll: true });
+    conectarOpciones(p);
+  }
+
+  function conectarOpciones(p) {
+    if (!p.opciones) return;
+    var entradas = el('paso').querySelectorAll('input[name="' + p.id + '"]');
+    var otro = el('otro-texto');
+    entradas.forEach(function (e) {
+      e.addEventListener('change', function () {
+        if (p.exclusiva && e.checked) {
+          entradas.forEach(function (x) {
+            if (x === e) return;
+            if (e.value === p.exclusiva || x.value === p.exclusiva) x.checked = false;
+          });
+        }
+        if (otro) {
+          var activo = el('paso').querySelector('input[name="' + p.id + '"][value="__otro__"]').checked;
+          otro.hidden = !activo;
+          if (activo && e.value === '__otro__') otro.focus();
+        }
+        el('error').textContent = '';
+      });
+    });
+  }
+
+  function guardarYValidar() {
+    var p = PASOS[indice];
+    if (p.tipo === 'datos') {
+      var nombre = el('nombre').value.trim();
+      var edad = el('edad').value.trim();
+      respuestas.nombre = nombre;
+      respuestas.edad = edad;
+      if (!nombre) return { mensaje: 'Cuéntanos tu nombre para continuar.', foco: 'nombre' };
+      var n = Number(edad);
+      if (!edad || !Number.isInteger(n) || n < 1 || n > 120) return { mensaje: 'Escribe tu edad en números.', foco: 'edad' };
+    } else if (p.tipo === 'texto') {
+      var v = el(p.id).value.trim();
+      respuestas[p.id] = v;
+      if (!v) return { mensaje: 'Escribe tu respuesta para continuar.', foco: p.id };
+    } else if (p.tipo === 'autorizacion') {
+      respuestas[p.id] = el('autorizo').checked;
+      if (!respuestas[p.id]) return { mensaje: 'Necesitamos tu autorización para enviar la encuesta.' };
+    } else {
+      var valores = [];
+      el('paso').querySelectorAll('input[name="' + p.id + '"]:checked').forEach(function (x) { valores.push(x.value); });
+      var otroCampo = el('otro-texto');
+      var texto = otroCampo ? otroCampo.value.trim() : '';
+      respuestas[p.id] = { valores: valores, otro: texto };
+      if (!valores.length) return { mensaje: 'Elige una opción para continuar.' };
+      if (valores.indexOf('__otro__') >= 0 && !texto) return { mensaje: 'Cuéntanos cuál para continuar.', foco: 'otro-texto' };
+    }
+    return null;
+  }
+
+  function construirEnvio() {
+    var datos = new URLSearchParams();
+    PASOS.forEach(function (p) {
+      if (p.tipo === 'datos') {
+        p.campos.forEach(function (c) { datos.append('entry.' + c.entrada, respuestas[c.id]); });
+      } else if (p.tipo === 'texto') {
+        datos.append('entry.' + p.entrada, respuestas[p.id]);
+      } else if (p.tipo === 'autorizacion') {
+        datos.append('entry.' + p.entrada, p.valor);
+      } else {
+        respuestas[p.id].valores.forEach(function (v) {
+          if (v === '__otro__') {
+            datos.append('entry.' + p.entrada, '__other_option__');
+            datos.append('entry.' + p.entrada + '.other_option_response', respuestas[p.id].otro);
+          } else {
+            datos.append('entry.' + p.entrada, v);
+          }
+        });
+      }
+    });
+    return datos;
+  }
+
+  function enviar() {
+    var boton = el('siguiente');
+    boton.disabled = true;
+    boton.textContent = 'Enviando…';
+    fetch(URL_ENVIO, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: construirEnvio().toString()
+    }).then(function () {
+      el('encuesta').hidden = true;
+      el('encuesta').style.display = 'none';
+      el('gracias-nombre').textContent = respuestas.nombre.split(/\s+/)[0];
+      el('gracias').hidden = false;
+      window.scrollTo(0, 0);
+      el('gracias-titulo').focus({ preventScroll: true });
+      respuestas = {};
+    }).catch(function () {
+      boton.disabled = false;
+      boton.textContent = 'Enviar';
+      el('error').innerHTML = 'No pudimos enviar tus respuestas. Revisa tu conexión e inténtalo de nuevo, o usa <a href="' + URL_RESPALDO + '" style="color:inherit">este formulario</a>.';
+    });
+  }
+
+  el('empezar').addEventListener('click', function () {
+    el('portada').hidden = true;
+    el('encuesta').hidden = false;
+    indice = 0;
+    dibujar();
+  });
+
+  el('atras').addEventListener('click', function () {
+    guardarYValidar();
+    if (indice > 0) { indice--; dibujar(); }
+  });
+
+  el('formulario').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var problema = guardarYValidar();
+    if (problema) {
+      el('error').textContent = problema.mensaje;
+      if (problema.foco && el(problema.foco)) el(problema.foco).focus();
+      return;
+    }
+    if (indice === PASOS.length - 1) { enviar(); return; }
+    indice++;
+    dibujar();
+  });
+})();
+</script>
+</body>
+</html>
