@@ -515,7 +515,7 @@
       html += '<p class="ayuda">' + esc(p.ayuda) + '</p>';
       html += '<textarea id="' + p.id + '" aria-labelledby="titulo-paso"' + (p.corto ? ' style="min-height:96px"' : '') + '>' + esc(respuestas[p.id]) + '</textarea>';
     } else if (p.tipo === 'autorizacion') {
-      html += '<div class="autorizacion">Autorizo a Daniel Sepulveda, nutricionista de TACTO, a tratar los datos de esta encuesta, incluidos mis datos de salud, para valorar mi caso, preparar mi plan y hacer mi seguimiento. Entiendo que los datos de salud son sensibles y que no estoy en la obligación de entregarlos, aunque sin ellos el plan puede no ser adecuado para mí. Mis respuestas se guardan en Google con acceso solo de mi nutricionista. Puedo conocer, actualizar o corregir mis datos y retirar esta autorización escribiendo al WhatsApp de TACTO.</div>';
+      html += '<div class="autorizacion">Autorizo a TACTO y a los nutricionistas de su equipo a tratar los datos de esta encuesta, incluidos mis datos de salud, para valorar mi caso, preparar mi plan y hacer mi seguimiento. Entiendo que los datos de salud son sensibles y que no estoy en la obligación de entregarlos, aunque sin ellos el plan puede no ser adecuado para mí. Mis respuestas se guardan en Google con acceso solo del equipo de TACTO que atiende mi caso. Puedo conocer, actualizar o corregir mis datos y retirar esta autorización escribiendo al WhatsApp de TACTO.</div>';
       html += '<label class="opcion"><input type="checkbox" id="autorizo"' + (respuestas[p.id] ? ' checked' : '') + '><span>' + esc(p.valor) + '</span></label>';
       html += '<p class="nota">Si prefieres no autorizar, no envíes la encuesta y escríbenos al WhatsApp de TACTO.</p>';
     } else {
