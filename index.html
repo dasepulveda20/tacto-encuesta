@@ -7,121 +7,130 @@
 <meta name="description" content="Queremos conocerte antes de recomendarte algo. Toma unos 5 minutos.">
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#641F32">
+<meta name="theme-color" content="#4A1424">
 <meta property="og:title" content="TACTO Nutrition · Antes de tu consulta">
 <meta property="og:description" content="Queremos conocerte antes de recomendarte algo. Toma unos 5 minutos.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23641F32'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='%23F5EFE6'%3ET%3C/text%3E%3C/svg%3E">
+<meta property="og:image" content="https://dasepulveda20.github.io/tacto-encuesta/compartir.jpg">
+<link rel="icon" type="image/png" href="icono-180.png">
+<link rel="apple-touch-icon" href="icono-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Playfair+Display:ital,wght@1,400;1,500&family=Prata&display=swap" rel="stylesheet">
 <style>
+  /* Identidad TACTO (versión definitiva): Prata para titulares, Cormorant Garamond para textos,
+     Playfair Display cursiva para la palabra que se siente y Cinzel para acentos en mayúscula. */
   :root {
     --vino: #641F32;
-    --vino-oscuro: #4E1726;
+    --vino-claro: #8A2E46;
+    --vino-oscuro: #3A0E1B;
     --crema: #F5EFE6;
+    --crema-clara: #FBF7F1;
     --chocolate: #2B211F;
     --arena: #D8C9B8;
     --champagne: #B89A70;
-    --blanco: #FFFCF8;
-    --texto-suave: #65564F;
-    --serif: "Fraunces", Georgia, "Times New Roman", serif;
-    --sans: "DM Sans", -apple-system, "Segoe UI", Arial, sans-serif;
+    --champagne-claro: #E8D2A6;
+    --champagne-profundo: #94733F;
+    --texto-suave: #5E4F49;
+    --titular: "Prata", Georgia, "Times New Roman", serif;
+    --texto: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --acento: "Playfair Display", Georgia, serif;
+    --mayus: "Cinzel", Georgia, serif;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     min-height: 100dvh;
-    background: var(--crema);
+    background: var(--crema-clara);
     color: var(--chocolate);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.5;
+    font-family: var(--texto);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.45;
     display: flex;
     flex-direction: column;
   }
   [hidden] { display: none !important; }
   button, input, textarea { font: inherit; color: inherit; }
+  em.acento { font-family: var(--acento); font-style: italic; font-weight: 400; }
 
-  /* Portada */
+  /* Portada y cierre */
   .portada {
     position: relative;
     overflow: hidden;
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: var(--vino);
+    background: radial-gradient(120% 90% at 30% 35%, var(--vino-claro) 0%, var(--vino) 45%, var(--vino-oscuro) 100%);
     color: var(--crema);
     padding: max(28px, env(safe-area-inset-top)) 24px max(28px, env(safe-area-inset-bottom));
   }
-  .portada::before, .portada::after {
+  .portada::before {
     content: "";
     position: absolute;
-    border-radius: 50%;
+    width: 430px; height: 560px;
+    right: -150px; bottom: -120px;
+    background: url("huella.webp") center / contain no-repeat;
+    opacity: .16;
     pointer-events: none;
-  }
-  .portada::before {
-    width: 520px; height: 520px;
-    right: -210px; top: -150px;
-    background: var(--vino-oscuro);
-  }
-  .portada::after {
-    width: 250px; height: 250px;
-    right: -70px; top: -70px;
-    border: 1px solid rgba(184, 154, 112, .55);
   }
   .portada > * { position: relative; z-index: 1; }
   .portada-contenido {
     width: 100%;
     max-width: 620px;
     margin: auto;
-    padding: 56px 0 24px;
+    padding: 48px 0 24px;
   }
   .marca {
-    font-family: var(--serif);
-    font-weight: 500;
+    font-family: var(--texto);
+    font-weight: 600;
     letter-spacing: .2em;
   }
+  .marca .punto { color: var(--champagne-claro); }
   .portada .marca {
     display: block;
-    font-size: clamp(3.1rem, 15vw, 5.6rem);
+    font-size: clamp(2.8rem, 13vw, 4.6rem);
     line-height: 1;
-    letter-spacing: .14em;
+    letter-spacing: .18em;
   }
   .linea-marca {
-    margin: 8px 0 44px;
-    font-size: .8rem;
-    font-weight: 500;
-    letter-spacing: .24em;
+    margin: 10px 0 46px;
+    font-family: var(--mayus);
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .3em;
     text-transform: uppercase;
     color: var(--arena);
   }
   .portada h1 {
-    margin: 0 0 16px;
-    max-width: 15em;
-    font-family: var(--serif);
-    font-size: clamp(1.9rem, 6.6vw, 2.75rem);
+    margin: 0 0 18px;
+    max-width: 14em;
+    font-family: var(--titular);
+    font-size: clamp(2rem, 7.4vw, 3rem);
     font-weight: 400;
-    line-height: 1.14;
+    line-height: 1.16;
   }
+  .portada h1 em.acento { color: var(--champagne-claro); }
   .portada p.entrada {
-    margin: 0 0 30px;
+    margin: 0 0 32px;
     max-width: 30em;
     color: #F1E7DA;
-    font-size: 1.08rem;
+    font-size: 1.18rem;
   }
   .boton-crema {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
     min-height: 56px;
-    padding: 14px 32px;
+    padding: 14px 34px;
     border: 0;
     border-radius: 999px;
     background: var(--crema);
     color: var(--vino);
+    font-family: var(--mayus);
+    font-size: .86rem;
     font-weight: 600;
+    letter-spacing: .16em;
     cursor: pointer;
     transition: transform .15s ease, background .15s ease;
   }
@@ -130,7 +139,8 @@
     display: block;
     margin-top: 16px;
     color: var(--arena);
-    font-size: .92rem;
+    font-size: 1.02rem;
+    font-style: italic;
   }
   .aviso-portada {
     max-width: 620px;
@@ -139,7 +149,7 @@
     padding-top: 18px;
     border-top: 1px solid rgba(216, 201, 184, .32);
     color: var(--arena);
-    font-size: .86rem;
+    font-size: .98rem;
   }
 
   /* Encabezado de las preguntas */
@@ -156,14 +166,22 @@
     align-items: baseline;
     gap: 16px;
   }
-  .encabezado .marca { font-size: 1.1rem; }
-  #contador { color: var(--arena); font-size: .88rem; white-space: nowrap; }
+  .encabezado .marca { font-size: 1.15rem; }
+  #contador {
+    color: var(--champagne-claro);
+    font-family: var(--mayus);
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
   .progreso { height: 3px; background: var(--arena); }
   .progreso span {
     display: block;
     height: 100%;
     width: 0;
-    background: var(--champagne);
+    background: linear-gradient(90deg, var(--champagne), var(--champagne-claro));
     transition: width .35s ease;
   }
 
@@ -173,7 +191,7 @@
     width: 100%;
     max-width: 668px;
     margin: 0 auto;
-    padding: 34px 24px 28px;
+    padding: 36px 24px 28px;
     display: flex;
     flex-direction: column;
   }
@@ -183,29 +201,31 @@
     to { opacity: 1; transform: none; }
   }
   .paso h2 {
-    margin: 0 0 8px;
-    font-family: var(--serif);
-    font-size: clamp(1.6rem, 5.4vw, 2.1rem);
-    font-weight: 500;
-    line-height: 1.18;
+    margin: 0 0 10px;
+    font-family: var(--titular);
+    font-size: clamp(1.65rem, 6vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.2;
     color: var(--vino);
     outline: none;
   }
-  .ayuda { margin: 0 0 22px; color: var(--texto-suave); }
+  .ayuda { margin: 0 0 24px; color: var(--texto-suave); font-size: 1.1rem; }
 
-  label.campo { display: block; margin-bottom: 18px; font-weight: 500; }
+  label.campo { display: block; margin-bottom: 18px; font-weight: 600; color: var(--vino); }
+  label.campo small { font-weight: 500; color: var(--texto-suave); font-style: italic; }
   input[type="text"], input[type="number"], textarea {
     display: block;
     width: 100%;
     margin-top: 7px;
-    padding: 14px 16px;
+    padding: 13px 16px;
     border: 1.5px solid var(--arena);
     border-radius: 12px;
-    background: var(--blanco);
-    font-weight: 400;
-    font-size: 1.05rem;
+    background: #fff;
+    color: var(--chocolate);
+    font-weight: 500;
+    font-size: 1.2rem;
   }
-  textarea { min-height: 168px; resize: vertical; line-height: 1.5; }
+  textarea { min-height: 120px; resize: vertical; line-height: 1.4; }
   input:focus, textarea:focus { outline: 2px solid var(--vino); outline-offset: 1px; border-color: var(--vino); }
 
   .opciones { display: grid; gap: 10px; }
@@ -214,12 +234,15 @@
   .opcion span {
     display: flex;
     align-items: center;
-    gap: 13px;
-    min-height: 56px;
-    padding: 13px 16px;
+    gap: 14px;
+    min-height: 58px;
+    padding: 12px 16px;
     border: 1.5px solid var(--arena);
     border-radius: 12px;
-    background: var(--blanco);
+    background: #fff;
+    font-weight: 600;
+    font-size: 1.12rem;
+    line-height: 1.3;
     transition: background .15s ease, border-color .15s ease, color .15s ease;
   }
   .opcion span::before {
@@ -228,17 +251,18 @@
     height: 20px;
     border: 1.5px solid var(--champagne);
     border-radius: 6px;
-    background: var(--blanco) center / 13px no-repeat;
+    background: #fff center / 13px no-repeat;
   }
   .opcion input[type="radio"] + span::before { border-radius: 50%; }
   .opcion:hover span { border-color: var(--champagne); }
   .opcion input:checked + span { background: var(--vino); border-color: var(--vino); color: var(--crema); }
   .opcion input:checked + span::before {
-    border-color: var(--crema);
-    background-color: var(--crema);
+    border-color: var(--champagne-claro);
+    background-color: var(--champagne-claro);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3.2L13 4.8' fill='none' stroke='%23641F32' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
   .opcion input:focus-visible + span { outline: 2px solid var(--vino); outline-offset: 2px; }
+  .opciones.en-fila { grid-template-columns: 1fr 1fr; }
   .otro-texto { margin-top: 2px; }
 
   .autorizacion {
@@ -246,13 +270,13 @@
     padding: 18px;
     border-left: 3px solid var(--champagne);
     border-radius: 0 12px 12px 0;
-    background: var(--blanco);
-    font-size: .97rem;
-    line-height: 1.55;
+    background: #fff;
+    font-size: 1.05rem;
+    line-height: 1.5;
   }
-  .nota { margin: 14px 0 0; color: var(--texto-suave); font-size: .92rem; }
+  .nota { margin: 14px 0 0; color: var(--texto-suave); font-size: 1rem; font-style: italic; }
 
-  .error { min-height: 1.5em; margin: 14px 0 0; color: var(--vino); font-weight: 600; font-size: .95rem; }
+  .error { min-height: 1.5em; margin: 14px 0 0; color: var(--vino); font-weight: 700; font-size: 1.05rem; }
   .acciones {
     display: flex;
     align-items: center;
@@ -264,13 +288,16 @@
   .boton {
     flex: 0 1 auto;
     min-height: 54px;
-    min-width: 150px;
+    min-width: 160px;
     padding: 13px 30px;
     border: 0;
     border-radius: 999px;
     background: var(--vino);
     color: var(--crema);
+    font-family: var(--mayus);
+    font-size: .82rem;
     font-weight: 600;
+    letter-spacing: .14em;
     cursor: pointer;
     transition: background .15s ease;
   }
@@ -282,33 +309,26 @@
     border: 0;
     background: none;
     color: var(--texto-suave);
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
   }
   .atras:hover { color: var(--vino); }
   button:focus-visible { outline: 2px solid var(--champagne); outline-offset: 3px; }
 
-  /* Cierre */
-  .cierre h1 {
-    margin: 0 0 16px;
-    font-family: var(--serif);
-    font-size: clamp(2.2rem, 8vw, 3.2rem);
-    font-weight: 400;
-    line-height: 1.08;
-  }
+  .cierre h1 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
   .cierre .frase {
-    margin: 26px 0 0;
+    margin: 28px 0 0;
     padding-top: 18px;
     border-top: 1px solid rgba(216, 201, 184, .32);
-    font-family: var(--serif);
-    font-size: 1.2rem;
-    color: var(--arena);
+    font-family: var(--acento);
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--champagne-claro);
   }
 
   @media (min-width: 720px) {
     .portada { padding-inline: 48px; }
-    .portada::before { width: 720px; height: 720px; right: -220px; top: -260px; }
-    .portada::after { width: 420px; height: 420px; right: -60px; top: -90px; }
+    .portada::before { width: 620px; height: 800px; right: -160px; bottom: -220px; }
     main { padding-top: 56px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -320,12 +340,12 @@
 
 <section class="portada" id="portada">
   <div class="portada-contenido">
-    <span class="marca">TACTO</span>
+    <span class="marca">TACTO<span class="punto">.</span></span>
     <p class="linea-marca">Nutrition</p>
-    <h1>Queremos conocerte antes de recomendarte algo.</h1>
-    <p class="entrada">Estas preguntas nos permiten dedicar la consulta a escucharte. No hay respuestas buenas ni malas.</p>
-    <button class="boton-crema" id="empezar" type="button">Empezar</button>
-    <span class="detalle-tiempo">Toma unos 5 minutos</span>
+    <h1>Queremos <em class="acento">conocerte</em> antes de recomendarte algo.</h1>
+    <p class="entrada">Son 8 preguntas cortas. Nos permiten dedicar la consulta a escucharte. No hay respuestas buenas ni malas.</p>
+    <button class="boton-crema" id="empezar" type="button">EMPEZAR</button>
+    <span class="detalle-tiempo">Toma unos 4 minutos</span>
   </div>
   <p class="aviso-portada">Esta encuesta no es un canal de urgencias. Si tienes síntomas de alarma, consulta a tu médico o acude a urgencias.</p>
 </section>
@@ -344,7 +364,7 @@
       <p class="error" id="error" role="alert"></p>
       <div class="acciones">
         <button class="atras" id="atras" type="button">← Atrás</button>
-        <button class="boton" id="siguiente" type="submit">Continuar</button>
+        <button class="boton" id="siguiente" type="submit">CONTINUAR</button>
       </div>
     </form>
   </main>
@@ -352,10 +372,10 @@
 
 <section class="portada cierre" id="gracias" hidden>
   <div class="portada-contenido">
-    <span class="marca" style="font-size:1.3rem;letter-spacing:.2em;margin-bottom:44px">TACTO</span>
+    <span class="marca" style="font-size:1.4rem;letter-spacing:.22em;margin-bottom:44px">TACTO<span class="punto">.</span></span>
     <h1 id="gracias-titulo" tabindex="-1">Gracias, <span id="gracias-nombre"></span>.</h1>
     <p class="entrada">Recibimos tus respuestas. Nos vemos en la consulta.</p>
-    <p class="frase">Cuidar también es sentir.</p>
+    <p class="frase">Nutrición que cabe en tu vida real.</p>
   </div>
   <p class="aviso-portada">Esta encuesta no es un canal de urgencias. Si tienes síntomas de alarma, consulta a tu médico o acude a urgencias.</p>
 </section>
@@ -369,12 +389,27 @@
   var URL_ENVIO = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse';
   var URL_RESPALDO = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/viewform';
 
+  // Cada pregunta pide una sola cosa. Los pasos con «etiqueta» son datos básicos y no cuentan como pregunta.
   var PASOS = [
     {
       tipo: 'datos', titulo: 'Primero, ¿con quién hablamos?', etiqueta: 'Antes de empezar',
+      ayuda: 'Nos ayuda a preparar tu consulta.',
       campos: [
-        { id: 'nombre', entrada: '1073520801', label: 'Nombre y apellido', autocomplete: 'name' },
-        { id: 'edad', entrada: '686223026', label: 'Edad', numero: true }
+        { id: 'nombre', entrada: '1073520801', label: 'Nombre y apellido', autocomplete: 'name', requerido: 'Cuéntanos tu nombre para continuar.' },
+        { id: 'edad', entrada: '686223026', label: 'Edad', numero: true, entero: true, min: 1, max: 120, requerido: 'Escribe tu edad en números.', invalido: 'Escribe tu edad en números.' }
+      ]
+    },
+    {
+      tipo: 'radio', id: 'sexo', entrada: '2111682161', etiqueta: 'Antes de empezar', enFila: true,
+      titulo: '¿Cuál es tu sexo?', ayuda: 'Lo usamos para interpretar bien tus medidas.',
+      opciones: ['Mujer', 'Hombre']
+    },
+    {
+      tipo: 'datos', titulo: 'Tu peso y tu estatura, si los sabes', etiqueta: 'Antes de empezar',
+      ayuda: 'Son aproximados. En la consulta los medimos juntos. Puedes dejarlos en blanco.',
+      campos: [
+        { id: 'peso', entrada: '843869968', label: 'Peso aproximado', sufijo: 'en kilos, por ejemplo 68', numero: true, decimal: true, min: 2, max: 350, invalido: 'Escribe el peso en kilos, por ejemplo 68.' },
+        { id: 'estatura', entrada: '1389283854', label: 'Estatura aproximada', sufijo: 'en centímetros, por ejemplo 165', numero: true, entero: true, min: 40, max: 230, invalido: 'Escribe la estatura en centímetros, por ejemplo 165.' }
       ]
     },
     {
@@ -399,18 +434,28 @@
       opciones: ['Sentir que pierdes el control sobre cuánto comes', 'Vomitar, ayunar muchas horas o usar laxantes para compensar lo que comiste', 'Sentir que la comida o tu peso dominan tu vida', 'Perder peso rápido sin proponértelo', 'Mareos fuertes o desmayos', 'Nada de lo anterior']
     },
     {
-      tipo: 'texto', id: 'dia', entrada: '1171312029',
-      titulo: 'Cuéntanos cómo es un día normal tuyo',
-      ayuda: 'A qué hora te levantas y trabajas, qué comes y a qué horas, quién cocina y cuánto te mueves.'
+      tipo: 'radio', id: 'comidas', entrada: '1886005797',
+      titulo: '¿Cuántas comidas haces en un día normal?', ayuda: 'Cuenta también las meriendas y las picadas.',
+      opciones: ['1 o 2', '3', '4 o 5', '6 o más']
     },
     {
-      tipo: 'texto', id: 'plan', entrada: '2058837645',
-      titulo: 'Para que tu plan quepa en tu vida',
-      ayuda: '¿Qué alimentos no pueden faltar, cuáles prefieres evitar y cuánto sueles gastar en mercado a la semana?'
+      tipo: 'radio', id: 'movimiento', entrada: '1118346813',
+      titulo: '¿Cuánto te mueves en una semana normal?', ayuda: 'Elige la que más se parezca a tu semana.',
+      opciones: ['Casi nada: paso la mayor parte del día sentado', 'Camino o hago tareas activas, pero no hago ejercicio', 'Hago ejercicio 1 o 2 veces por semana', 'Hago ejercicio 3 o más veces por semana']
+    },
+    {
+      tipo: 'texto', id: 'gustos', entrada: '504004807', corto: true,
+      titulo: '¿Qué alimentos no pueden faltar en tu semana?',
+      ayuda: 'Los que más disfrutas o comes casi todos los días.'
+    },
+    {
+      tipo: 'texto', id: 'evitar', entrada: '164763772', corto: true,
+      titulo: '¿Qué alimentos prefieres evitar?',
+      ayuda: 'Los que no te gustan o te caen mal. Si no hay ninguno, escribe «ninguno».'
     },
     { tipo: 'autorizacion', id: 'autorizacion', entrada: '707694152', titulo: 'Autorización de datos', etiqueta: 'Último paso', valor: 'Sí, autorizo' }
   ];
-  var TOTAL_PREGUNTAS = 6;
+  var TOTAL_PREGUNTAS = PASOS.filter(function (p) { return !p.etiqueta; }).length;
 
   var respuestas = {};
   var indice = 0;
@@ -431,7 +476,7 @@
   function dibujarOpciones(p) {
     var r = respuestas[p.id] || { valores: [], otro: '' };
     var tipo = p.tipo === 'radio' ? 'radio' : 'checkbox';
-    var html = '<div class="opciones" role="group" aria-labelledby="titulo-paso">';
+    var html = '<div class="opciones' + (p.enFila ? ' en-fila' : '') + '" role="group" aria-labelledby="titulo-paso">';
     p.opciones.forEach(function (o) {
       var marcado = r.valores.indexOf(o) >= 0 ? ' checked' : '';
       html += '<label class="opcion"><input type="' + tipo + '" name="' + p.id + '" value="' + esc(o) + '"' + marcado + '><span>' + esc(o) + '</span></label>';
@@ -449,16 +494,17 @@
     var html = '<h2 id="titulo-paso" tabindex="-1">' + esc(p.titulo) + '</h2>';
 
     if (p.tipo === 'datos') {
-      html += '<p class="ayuda">Nos ayuda a preparar tu consulta.</p>';
+      html += '<p class="ayuda">' + esc(p.ayuda) + '</p>';
       p.campos.forEach(function (c) {
-        html += '<label class="campo">' + esc(c.label) + '<input id="' + c.id + '" type="' + (c.numero ? 'number' : 'text') + '"' +
-          (c.numero ? ' inputmode="numeric" min="1" max="120"' : '') +
+        var modo = c.decimal ? 'decimal' : (c.numero ? 'numeric' : '');
+        html += '<label class="campo">' + esc(c.label) + (c.sufijo ? ' <small>' + esc(c.sufijo) + '</small>' : '') +
+          '<input id="' + c.id + '" type="text"' + (modo ? ' inputmode="' + modo + '"' : '') +
           (c.autocomplete ? ' autocomplete="' + c.autocomplete + '"' : '') +
           ' value="' + esc(respuestas[c.id]) + '"></label>';
       });
     } else if (p.tipo === 'texto') {
       html += '<p class="ayuda">' + esc(p.ayuda) + '</p>';
-      html += '<textarea id="' + p.id + '" aria-labelledby="titulo-paso">' + esc(respuestas[p.id]) + '</textarea>';
+      html += '<textarea id="' + p.id + '" aria-labelledby="titulo-paso"' + (p.corto ? ' style="min-height:96px"' : '') + '>' + esc(respuestas[p.id]) + '</textarea>';
     } else if (p.tipo === 'autorizacion') {
       html += '<div class="autorizacion">Autorizo a Daniel Sepulveda, nutricionista de TACTO, a tratar los datos de esta encuesta, incluidos mis datos de salud, para valorar mi caso, preparar mi plan y hacer mi seguimiento. Entiendo que los datos de salud son sensibles y que no estoy en la obligación de entregarlos, aunque sin ellos el plan puede no ser adecuado para mí. Mis respuestas se guardan en Google con acceso solo de mi nutricionista. Puedo conocer, actualizar o corregir mis datos y retirar esta autorización escribiendo al WhatsApp de TACTO.</div>';
       html += '<label class="opcion"><input type="checkbox" id="autorizo"' + (respuestas[p.id] ? ' checked' : '') + '><span>' + esc(p.valor) + '</span></label>';
@@ -475,7 +521,7 @@
 
     el('error').textContent = '';
     el('atras').style.visibility = indice === 0 ? 'hidden' : 'visible';
-    el('siguiente').textContent = indice === PASOS.length - 1 ? 'Enviar' : 'Continuar';
+    el('siguiente').textContent = indice === PASOS.length - 1 ? 'ENVIAR' : 'CONTINUAR';
     el('contador').textContent = p.etiqueta || ('Pregunta ' + numeroPregunta(indice) + ' de ' + TOTAL_PREGUNTAS);
     el('barra').style.width = Math.round(((indice + 1) / PASOS.length) * 100) + '%';
 
@@ -509,17 +555,23 @@
   function guardarYValidar() {
     var p = PASOS[indice];
     if (p.tipo === 'datos') {
-      var nombre = el('nombre').value.trim();
-      var edad = el('edad').value.trim();
-      respuestas.nombre = nombre;
-      respuestas.edad = edad;
-      if (!nombre) return { mensaje: 'Cuéntanos tu nombre para continuar.', foco: 'nombre' };
-      var n = Number(edad);
-      if (!edad || !Number.isInteger(n) || n < 1 || n > 120) return { mensaje: 'Escribe tu edad en números.', foco: 'edad' };
+      for (var i = 0; i < p.campos.length; i++) {
+        var c = p.campos[i];
+        var v = el(c.id).value.trim();
+        respuestas[c.id] = v;
+        if (!v) {
+          if (c.requerido) return { mensaje: c.requerido, foco: c.id };
+          continue;
+        }
+        if (c.numero) {
+          var n = Number(v.replace(',', '.'));
+          if (!isFinite(n) || (c.entero && !Number.isInteger(n)) || n < c.min || n > c.max) return { mensaje: c.invalido, foco: c.id };
+        }
+      }
     } else if (p.tipo === 'texto') {
-      var v = el(p.id).value.trim();
-      respuestas[p.id] = v;
-      if (!v) return { mensaje: 'Escribe tu respuesta para continuar.', foco: p.id };
+      var t = el(p.id).value.trim();
+      respuestas[p.id] = t;
+      if (!t) return { mensaje: 'Escribe tu respuesta para continuar.', foco: p.id };
     } else if (p.tipo === 'autorizacion') {
       respuestas[p.id] = el('autorizo').checked;
       if (!respuestas[p.id]) return { mensaje: 'Necesitamos tu autorización para enviar la encuesta.' };
@@ -539,7 +591,7 @@
     var datos = new URLSearchParams();
     PASOS.forEach(function (p) {
       if (p.tipo === 'datos') {
-        p.campos.forEach(function (c) { datos.append('entry.' + c.entrada, respuestas[c.id]); });
+        p.campos.forEach(function (c) { if (respuestas[c.id]) datos.append('entry.' + c.entrada, respuestas[c.id].replace(',', '.')); });
       } else if (p.tipo === 'texto') {
         datos.append('entry.' + p.entrada, respuestas[p.id]);
       } else if (p.tipo === 'autorizacion') {
@@ -561,7 +613,7 @@
   function enviar() {
     var boton = el('siguiente');
     boton.disabled = true;
-    boton.textContent = 'Enviando…';
+    boton.textContent = 'ENVIANDO…';
     fetch(URL_ENVIO, {
       method: 'POST',
       mode: 'no-cors',
@@ -577,7 +629,7 @@
       respuestas = {};
     }).catch(function () {
       boton.disabled = false;
-      boton.textContent = 'Enviar';
+      boton.textContent = 'ENVIAR';
       el('error').innerHTML = 'No pudimos enviar tus respuestas. Revisa tu conexión e inténtalo de nuevo, o usa <a href="' + URL_RESPALDO + '" style="color:inherit">este formulario</a>.';
     });
   }
