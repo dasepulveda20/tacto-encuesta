@@ -135,6 +135,7 @@
     transition: transform .15s ease, background .15s ease;
   }
   .boton-crema:hover { background: #fff; transform: translateY(-1px); }
+  a.boton-crema { text-decoration: none; margin-top: 8px; }
   .detalle-tiempo {
     display: block;
     margin-top: 16px;
@@ -374,7 +375,8 @@
   <div class="portada-contenido">
     <span class="marca" style="font-size:1.4rem;letter-spacing:.22em;margin-bottom:44px">TACTO<span class="punto">.</span></span>
     <h1 id="gracias-titulo" tabindex="-1">Gracias, <span id="gracias-nombre"></span>.</h1>
-    <p class="entrada">Recibimos tus respuestas. Nos vemos en la consulta.</p>
+    <p class="entrada" id="gracias-siguiente">Recibimos tus respuestas. Te escribiremos por WhatsApp para confirmar tu cita.</p>
+    <a class="boton-crema" id="agendar" href="#" target="_blank" rel="noopener" hidden>ELEGIR MI HORARIO</a>
     <p class="frase">Nutrición que cabe en tu vida real.</p>
   </div>
   <p class="aviso-portada">Esta encuesta no es un canal de urgencias. Si tienes síntomas de alarma, consulta a tu médico o acude a urgencias.</p>
@@ -388,6 +390,11 @@
   var FORM_ID = '1FAIpQLSdx73hUIKSz4D5ogoecbeG53ItmL7luVX6IUyL8YRJNl8xMog';
   var URL_ENVIO = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse';
   var URL_RESPALDO = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/viewform';
+  // Agenda de valoraciones (página de citas de Google Calendar). Si está vacía, se avisa que escribiremos por WhatsApp.
+  var URL_AGENDA = '';
+  // Origen de la visita para medir la campaña: ?o=historia, ?o=post, ?o=bio, ?o=whatsapp... Se envía oculto.
+  var ENTRADA_ORIGEN = '1227837459';
+  var ORIGEN = (new URLSearchParams(location.search).get('o') || 'directo').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 30) || 'directo';
 
   // Cada pregunta pide una sola cosa. Los pasos con «etiqueta» son datos básicos y no cuentan como pregunta.
   var PASOS = [
@@ -596,6 +603,7 @@
 
   function construirEnvio() {
     var datos = new URLSearchParams();
+    datos.append('entry.' + ENTRADA_ORIGEN, ORIGEN);
     PASOS.forEach(function (p) {
       if (p.tipo === 'datos') {
         p.campos.forEach(function (c) { if (respuestas[c.id]) datos.append('entry.' + c.entrada, respuestas[c.id].replace(',', '.')); });
@@ -630,6 +638,11 @@
       el('encuesta').hidden = true;
       el('encuesta').style.display = 'none';
       el('gracias-nombre').textContent = respuestas.nombre.split(/\s+/)[0];
+      if (URL_AGENDA) {
+        el('gracias-siguiente').innerHTML = 'Último paso: elige el horario de tu valoración virtual.';
+        el('agendar').href = URL_AGENDA;
+        el('agendar').hidden = false;
+      }
       el('gracias').hidden = false;
       window.scrollTo(0, 0);
       el('gracias-titulo').focus({ preventScroll: true });
