@@ -377,7 +377,7 @@
     <h1 id="gracias-titulo" tabindex="-1">Gracias, <span id="gracias-nombre"></span>.</h1>
     <p class="entrada" id="gracias-siguiente">Recibimos tus respuestas. Te escribiremos por WhatsApp para confirmar tu cita.</p>
     <a class="boton-crema" id="agendar" href="#" target="_blank" rel="noopener" hidden>ELEGIR MI HORARIO</a>
-    <p class="frase">Nutrición que cabe en tu vida real.</p>
+    <p class="frase">Nutrición hecha para tu vida real.</p>
   </div>
   <p class="aviso-portada">Esta encuesta no es un canal de urgencias. Si tienes síntomas de alarma, consulta a tu médico o acude a urgencias.</p>
 </section>
@@ -391,7 +391,7 @@
   var URL_ENVIO = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/formResponse';
   var URL_RESPALDO = 'https://docs.google.com/forms/d/e/' + FORM_ID + '/viewform';
   // Agenda de valoraciones (página de citas de Google Calendar). Si está vacía, se avisa que escribiremos por WhatsApp.
-  var URL_AGENDA = '';
+  var URL_AGENDA = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ12KFh8plu9Y6T9Y5vpVFV7n748kcqGDG5o3dJ8CFmJQ7GwXa-PUqqZ-gqL8XIg-aQCPuruMIpv';
   // Origen de la visita para medir la campaña: ?o=historia, ?o=post, ?o=bio, ?o=whatsapp... Se envía oculto.
   var ENTRADA_ORIGEN = '1227837459';
   var ORIGEN = (new URLSearchParams(location.search).get('o') || 'directo').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 30) || 'directo';
