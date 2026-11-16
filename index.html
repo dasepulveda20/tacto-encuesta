@@ -393,10 +393,12 @@
   var PASOS = [
     {
       tipo: 'datos', titulo: 'Primero, ¿con quién hablamos?', etiqueta: 'Antes de empezar',
-      ayuda: 'Nos ayuda a preparar tu consulta.',
+      ayuda: 'Nos ayuda a preparar tu consulta y a escribirte por WhatsApp.',
       campos: [
         { id: 'nombre', entrada: '1073520801', label: 'Nombre y apellido', autocomplete: 'name', requerido: 'Cuéntanos tu nombre para continuar.' },
-        { id: 'edad', entrada: '686223026', label: 'Edad', numero: true, entero: true, min: 1, max: 120, requerido: 'Escribe tu edad en números.', invalido: 'Escribe tu edad en números.' }
+        { id: 'edad', entrada: '686223026', label: 'Edad', numero: true, entero: true, min: 1, max: 120, requerido: 'Escribe tu edad en números.', invalido: 'Escribe tu edad en números.' },
+        { id: 'cedula', entrada: '1930191898', label: 'Cédula', sufijo: 'número de documento, sin puntos', modo: 'numeric', limpiar: true, patron: /^[0-9A-Za-z]{5,15}$/, requerido: 'Escribe tu número de cédula para continuar.', invalido: 'Revisa tu cédula: escríbela sin puntos ni espacios.' },
+        { id: 'celular', entrada: '634748810', label: 'Celular (WhatsApp)', sufijo: 'por ejemplo 300 123 4567', modo: 'tel', autocomplete: 'tel', limpiar: true, celular: true, patron: /^(3[0-9]{9}|\+[0-9]{8,15})$/, requerido: 'Escribe tu celular para continuar.', invalido: 'Escribe tu celular de 10 dígitos, por ejemplo 3001234567.' }
       ]
     },
     {
@@ -496,7 +498,7 @@
     if (p.tipo === 'datos') {
       html += '<p class="ayuda">' + esc(p.ayuda) + '</p>';
       p.campos.forEach(function (c) {
-        var modo = c.decimal ? 'decimal' : (c.numero ? 'numeric' : '');
+        var modo = c.modo || (c.decimal ? 'decimal' : (c.numero ? 'numeric' : ''));
         html += '<label class="campo">' + esc(c.label) + (c.sufijo ? ' <small>' + esc(c.sufijo) + '</small>' : '') +
           '<input id="' + c.id + '" type="text"' + (modo ? ' inputmode="' + modo + '"' : '') +
           (c.autocomplete ? ' autocomplete="' + c.autocomplete + '"' : '') +
@@ -558,11 +560,16 @@
       for (var i = 0; i < p.campos.length; i++) {
         var c = p.campos[i];
         var v = el(c.id).value.trim();
+        if (c.limpiar) {
+          v = v.replace(/[\s.\-()]/g, '');
+          if (c.celular) v = v.replace(/^\+?57(3[0-9]{9})$/, '$1');
+        }
         respuestas[c.id] = v;
         if (!v) {
           if (c.requerido) return { mensaje: c.requerido, foco: c.id };
           continue;
         }
+        if (c.patron && !c.patron.test(v)) return { mensaje: c.invalido, foco: c.id };
         if (c.numero) {
           var n = Number(v.replace(',', '.'));
           if (!isFinite(n) || (c.entero && !Number.isInteger(n)) || n < c.min || n > c.max) return { mensaje: c.invalido, foco: c.id };
